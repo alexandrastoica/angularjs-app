@@ -1,4 +1,5 @@
-var app = angular.module('photoApp', ['ngRoute', 'ngSanitize', 'photoControllers']);
+var app = angular.module('photoApp', ['ngRoute', 'ngSanitize', 'photoControllers', 'ngResource']);
+
 
 app.config(['$routeProvider',
   function($routeProvider) {

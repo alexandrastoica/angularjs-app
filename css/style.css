@@ -1,5 +1,6 @@
 body {
-  background-color: #3F51B5;
+  color: #555;
+  background-color: #fff;
   background-font-family: 'Roboto', sans-serif;
   background-font-size: 16pt; }
   body .wrapper {
@@ -9,62 +10,119 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center; }
+    @media screen and (max-width: 550px) {
+      body .wrapper {
+        width: 100%;
+        background-color: #efeae2; } }
   body .photo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #E8EAF6;
+    background-color: #efeae2;
     width: 100%;
-    height: 170px;
+    height: 200px;
     margin: 20px auto; }
     body .photo .col-1 {
-      flex: 2;
+      flex: 3;
+      min-width: 250px;
       height: 100%;
-      margin-right: 20px; }
+      margin-right: 20px;
+      overflow: hidden; }
+      @media screen and (max-width: 550px) {
+        body .photo .col-1 {
+          flex: 7; } }
     body .photo .col-2 {
-      flex: 8;
+      flex: 7;
       width: 100%; }
+      @media screen and (max-width: 550px) {
+        body .photo .col-2 {
+          flex: 3;
+          width: 90%; } }
       body .photo .col-2 h1 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis; }
     body .photo img {
-      width: 100%;
-      height: 100%; }
+      min-width: 100%;
+      min-height: 100%;
+      height: auto; }
+      @media screen and (max-width: 550px) {
+        body .photo img {
+          min-height: 200px; } }
+    @media screen and (max-width: 550px) {
+      body .photo {
+        flex-direction: column;
+        padding: 10px 0;
+        height: auto;
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid #fafafa; } }
   body .details {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #E8EAF6;
+    background-color: #efeae2;
     width: 100%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    padding-bottom: 20px; }
     body .details > * {
-      padding: 10px 30px; }
+      padding: 5px 30px; }
     body .details .col-1 {
       display: flex;
       flex-direction: row;
-      justify-content: space-between; }
+      justify-content: space-between;
+      align-items: center; }
     body .details .col-2 {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      width: 400px; }
+      justify-content: flex-start; }
+      @media screen and (max-width: 550px) {
+        body .details .col-2 {
+          flex-direction: column; } }
     body .details .col-3 {
       display: flex;
       flex-direction: row;
       justify-content: flex-start; }
       body .details .col-3 img {
-        width: 400px;
-        height: auto;
-        padding-right: 20px; }
+        min-width: 250px;
+        height: auto; }
+      body .details .col-3 .info-photo {
+        display: flex;
+        margin-right: 30px;
+        overflow: hidden; }
+        body .details .col-3 .info-photo p:first-child {
+          display: none; }
+        body .details .col-3 .info-photo p:nth-child(3) {
+          display: none; }
+      body .details .col-3 .info-details {
+        display: flex;
+        flex: 6;
+        flex-direction: column;
+        justify-content: space-around; }
+        body .details .col-3 .info-details span p:first-child {
+          display: none; }
+        body .details .col-3 .info-details span p:nth-child(2) {
+          display: none; }
+        @media screen and (max-width: 550px) {
+          body .details .col-3 .info-details {
+            min-height: 100px; } }
+      @media screen and (max-width: 550px) {
+        body .details .col-3 {
+          flex-direction: column;
+          align-items: center; } }
   body .info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 0;
     padding-right: 20px; }
+    @media screen and (max-width: 800px) {
+      body .info {
+        flex-direction: column; }
+        body .info a {
+          line-height: 2; } }
   body h1 {
-    color: #111;
+    color: #555;
     font-family: 'Roboto' , sans-serif;
     font-size: 20pt;
     font-weight: 400;
@@ -72,48 +130,74 @@ body {
   body h2 {
     color: #fff;
     font-family: 'Roboto' , sans-serif;
-    font-size: 14pt;
-    font-weight: 500;
+    font-size: 16pt;
+    font-weight: 400;
     line-height: 1; }
   body p {
-    color: #111;
+    color: #555;
     font-family: 'Roboto' , sans-serif;
     font-size: 12pt;
-    font-weight: 700; }
+    font-weight: 400; }
   body a {
-    color: #555;
+    color: #c88a4d;
     font-family: 'Roboto' , sans-serif;
     font-size: 12pt;
     font-weight: 400;
     text-decoration: none; }
-  body .search {
+    body a:hover {
+      text-decoration: underline; }
+  body i {
+    width: 80px;
+    margin: 0 auto; }
+  body .top {
     display: flex;
-    justify-content: flex-end;
-    padding: 50px 0; }
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 0;
+    align-items: center; }
+    @media screen and (max-width: 550px) {
+      body .top {
+        flex-direction: column;
+        padding: 10px; } }
   body input {
-    border-color: #E91E63;
+    background-color: #efeae2;
+    padding: 5px 10px;
+    border-color: #555;
     border-width: 1px;
     border-style: solid;
+    border-radius: 45px;
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
-    height: 18px;
+    height: 24px;
     font-family: 'Roboto' , sans-serif;
-    font-size: 12pt;
-    font-weight: 400; }
+    font-size: 10pt;
+    font-weight: 300; }
+    @media screen and (max-width: 550px) {
+      body input {
+        width: 90%;
+        background-color: #fff; } }
   body button {
-    background-color: #3F51B5;
-    color: #fff;
-    border-color: #E91E63;
-    border-width: 1px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #efeae2;
+    color: #555;
+    border-color: #555;
+    border-width: 2px;
     border-style: solid;
+    border-radius: 45px;
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
-    width: 100px;
-    height: 30px;
+    width: 150px;
     font-family: 'Roboto' , sans-serif;
-    font-size: 12pt;
-    font-weight: 400; }
+    font-size: 10pt;
+    font-weight: 400;
+    line-height: 100%;
+    cursor: pointer; }
+    @media screen and (max-width: 550px) {
+      body button {
+        width: 100px;
+        background-color: #fff; } }
 
 /*# sourceMappingURL=style.css.map */

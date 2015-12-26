@@ -1,16 +1,23 @@
-<div class="search">
-    <h2>Search:</h2> <input type="text" placeholder="Enter Keyword" autofocus ng-model="query">
+<div class="top bounce animated">
+    <h1>Flickr Public Feed</h1>
+    <input type="text" placeholder="Search" autofocus ng-model="query">
 </div>
-<div class="photo" ng-repeat="photo in photos | filter: query "  infinite-scroll="loadMore()" infinite-scroll-distance="1">
+<div class="photo fadeIn animated" ng-repeat="photo in photos | filter: query | limitTo: photoLimit()" ng-show="dataLoaded">
+    
     <div class="col-1">
         <a href="#/photos/{{photos.indexOf(photo)}}"><img ng-src="{{photo.media.m}}" alt="flickr photo" align="left"></a>
     </div>
     <div class="col-2">  
         <h1>{{photo.title}}</h1>
         <div class="info">
-            <a href="https://www.flickr.com/people/{{photo.author_id}}" alt="author">{{photo.author}}</a>
+            <a href="https://www.flickr.com/people/{{photo.author_id}}" target="blank" alt="author">{{photo.author}}</a>
             <p>Published: {{photo.published | date:"dd ' ' MMM ' ' yyyy 'at' HH:mm"}}</p>
-            <a href="{{photo.link}}" alt="link">View on Flickr</a>
+            <a href="{{photo.link}}" target="blank" alt="link">View on Flickr</a>
+            <div class="g-plusone" data-size="small" data-annotation="bubble"></div>
         </div>
+
     </div>
 </div>
+<i ng-hide="dataLoaded" class="fa fa-spinner fa-5x rotate animated"></i>
+<button ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Show more</button>
+<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>

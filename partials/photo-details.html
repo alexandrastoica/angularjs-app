@@ -1,19 +1,20 @@
-<div class="details" ng-model="photos">
-	<div class="col-1">
-		<h1>{{photos[photo_id].title}}</h1>
-		<a href="#/" alt="return to main page"><button class="back">Back</button></a>
-	</div>
-
-	<div class="col-2">
-    	<a href="https://www.flickr.com/people/{{photo.author_id}}" alt="author">Photo Author</a>
-    	<span> | </span>
-    	<p>Published: {{photos[photo_id].published | date:"dd ' ' MMM ' ' yyyy 'at' HH:mm"}}</p>
-   	</div>
-
-   	<div class="col-3">
-		
-		<div class="info" ng-bind-html="photos[photo_id].description">
-	    	<p>Tags: {{photos[photo_id].tags}}</p>
-		</div>
-	</div>
+<i ng-hide="dataLoaded" class="fa fa-spinner fa-pulse fa-5x"></i>
+<div class="details slideInRight animated" ng-model="photos" ng-show="dataLoaded">
+    <div class="col-1">
+        <a href="{{photo.link}}" target="blank" alt="link"><h1>{{photos[photo_id].title}}</h1></a>
+        <a href="#/" alt="return to main page">
+            <button class="back">Back</button>
+        </a>
+    </div>
+    <div class="col-2">
+        <a href="https://www.flickr.com/people/{{photo.author_id}}" target="blank" alt="author">Photo Author | </a>
+        <p>&nbsp;Published: {{photos[photo_id].published | date:"dd ' ' MMM ' ' yyyy 'at' HH:mm"}}</p>
+    </div>
+    <div class="col-3">
+        <div class="info-photo" ng-bind-html="photos[photo_id].description"></div>
+        <div class="info-details">
+            <span ng-bind-html="photos[photo_id].description"></span>
+            <p>Tags: {{photos[photo_id].tags}}</p>
+        </div>
+    </div>
 </div>

@@ -46,17 +46,18 @@ body{
 			flex: 3;
 			min-width: 250px;
 			height: 100%;
-			margin-right: 20px; 
 			overflow: hidden;
 		}
 		.col-2{
 			@media screen and (max-width: $mobile-break-point) {
 				flex: 3;
 				width: 90%;
+				margin: 20px 0;
 			}
 			flex: 7;
 			width: 100%;
-			h1{
+			margin: 0 20px;
+			h2{
 				white-space: nowrap;
 				overflow: hidden;
   				text-overflow: ellipsis;
@@ -101,7 +102,12 @@ body{
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			
+
+			a:first-child{
+				color: $black;
+				font-size: 16pt;
+				max-width: 70%;
+			}
 		}
 
 		.col-2{
@@ -110,6 +116,9 @@ body{
 			justify-content: flex-start;
 			@media screen and (max-width: $mobile-break-point) {
 				flex-direction: column;
+				span{
+					display: none;
+				}
 			}
 		}
 
@@ -120,11 +129,13 @@ body{
 			img{
 				min-width: 250px;
 				height: auto;
+				@media screen and (max-width: $mobile-break-point) {
+					margin: 20px 0;
+				}
 			}
 
 			.info-photo{
 				display:flex;
-				margin-right: 30px;
 				overflow: hidden;
 				p:first-child{
 					display: none;
@@ -139,6 +150,7 @@ body{
 				flex: 6;
 				flex-direction: column;
 				justify-content: space-around;
+				margin: 0 20px;
 				span{
 					p:first-child{
 						display: none;
@@ -165,7 +177,7 @@ body{
 		flex-direction: row;
 		justify-content: space-between;
 		margin: 0;
-		padding-right: 20px;
+		//padding-right: 20px;
 		@media screen and (max-width: $break-point) {
 			flex-direction: column;
 			a{
@@ -185,13 +197,13 @@ body{
 	}
 
 	h2{
-		color: $white;
+		color: $black;
 		font:{
 			family: 'Roboto' , sans-serif;
 			size: 16pt;
 			weight: 400;
 		}
-		line-height: 1;
+		line-height: 2;
 	}
 
 	p{

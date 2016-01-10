@@ -4,10 +4,12 @@ app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/', {
+        title: 'Flickr Public Feed',
         templateUrl: 'partials/feed.html',
         controller: 'GalleryController'
       }).
       when('/photos/:photoID', {
+        title: 'Photo | Flickr Public Feed',
         templateUrl: 'partials/photo-details.html',
         controller: 'PhotoDetailCtrl'
       }).
@@ -16,15 +18,22 @@ app.config(['$routeProvider',
       });
 }]);
 
-app.factory('Page', function(){
-  var title = 'default';
+app.filter('htmlToPlaintext', function() {
+    return function(text) {
+      return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+});
+
+/*app.factory('Page', function(){
+  var title = 'Flickr Public Feed';
   return {
     title: function() { return title; },
     setTitle: function(newTitle) { title = newTitle; }
   };
-});
+});*/ 
 
-/*app.run(['$location', '$rootScope', function($location, $rootScope) {
+
+app.run(['$location', '$rootScope', function($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         // test for current route
         if(current.$$route) {
@@ -32,4 +41,4 @@ app.factory('Page', function(){
             $rootScope.title = current.$$route.title;
         }
     });
-}]);*/
+}]);

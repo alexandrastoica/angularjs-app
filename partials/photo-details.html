@@ -13,8 +13,13 @@
     <div class="col-3">
         <div class="info-photo" ng-bind-html="photos[photo_id].description"></div>
         <div class="info-details">
-            <span ng-bind-html="photos[photo_id].description"></span>
-            <p>Tags: {{photos[photo_id].tags}}</p>
+            <p> {{photos[photo_id].description | htmlToPlaintext}}></p>
+            <ul>
+                <li>Tags:</li>
+                <li ng-repeat="tag in photos[photo_id].tags.split(' ')">
+                    <a href="https://www.flickr.com/photos/tags/{{tag}}" target="blank">{{tag}}
+                </li>
+            </ul> 
         </div>
     </div>
 </div>

@@ -17,6 +17,23 @@ body{
 		}
 	}
 
+	ul{
+		list-style-type: none;
+		padding: 10px 0;
+	}
+
+	li{
+		font:{
+			family: 'Roboto', sans-serif;
+			weight: 700;
+		}
+		float: left;
+		padding-right: 5px;
+		a{
+			display: block;
+		}
+	}
+
 	.wrapper{
 		width: 80%;
 		min-height: 100vh;
@@ -151,15 +168,6 @@ body{
 				flex-direction: column;
 				justify-content: space-around;
 				margin: 0 20px;
-				span{
-					p:first-child{
-						display: none;
-					}
-
-					p:nth-child(2){
-						display:none;
-					}
-				}
 				@media screen and (max-width: $mobile-break-point) {
 					min-height: 100px;
 				}

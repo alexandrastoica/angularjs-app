@@ -2,7 +2,7 @@
     <h1>Flickr Public Feed</h1>
     <input type="text" placeholder="Search" autofocus ng-model="query">
 </div>
-<div class="photo fadeIn animated" ng-repeat="photo in photos | filter: query | limitTo: photoLimit()" ng-show="dataLoaded">
+<div class="photo fadeIn animated" ng-repeat="photo in photos | filter: {tags: query} | limitTo: photoLimit()" ng-show="dataLoaded">
     
     <div class="col-1">
         <a href="#/photos/{{photos.indexOf(photo)}}"><img ng-src="{{photo.media.m}}" alt="flickr photo" align="left"></a>

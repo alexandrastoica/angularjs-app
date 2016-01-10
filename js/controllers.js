@@ -29,8 +29,7 @@ photoControllers.controller('GalleryController', ['$scope', function ($scope){
     $scope.showMoreItems = function() {
         pagesShown = pagesShown + 1;         
     };
-
-
+    
 }]);
 
 

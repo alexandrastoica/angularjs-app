@@ -24,15 +24,6 @@ app.filter('htmlToPlaintext', function() {
     };
 });
 
-/*app.factory('Page', function(){
-  var title = 'Flickr Public Feed';
-  return {
-    title: function() { return title; },
-    setTitle: function(newTitle) { title = newTitle; }
-  };
-});*/ 
-
-
 app.run(['$location', '$rootScope', function($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         // test for current route

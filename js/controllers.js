@@ -1,25 +1,21 @@
 var photoControllers = angular.module('photoControllers', []);
 
-photoControllers.controller('MainCtrl', ['$scope', '$http', function ($scope, $http){
-    $scope.photos = [];
+photoControllers.controller('MainCtrl', function ($scope, Photo){
     $scope.dataLoaded = false;
-    var url = "https://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json";
-    $http.jsonp(url, {
-        params: {
-                "jsoncallback": "JSON_CALLBACK"
-            },
-            "responseType": "json"
-        }).success(function(data) {
+    $scope.getData = function(tag){
+        Photo.load({tags: tag}, function(data){
             $scope.photos = data.items;
+            console.log($scope.photos);
             $scope.dataLoaded = true;
         });
-
-}]);
+    }
+});
 
 photoControllers.controller('GalleryController', ['$scope', function ($scope){
 
     var pagesShown = 1;
     var pageSize = 5;
+
     $scope.photoLimit = function() {
         return pageSize * pagesShown;
     };

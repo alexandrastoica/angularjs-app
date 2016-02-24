@@ -1,8 +1,10 @@
 <div class="top bounce animated">
     <h1>Flickr Public Feed</h1>
-    <input type="text" placeholder="Search" autofocus ng-model="query">
+    <form ng-submit="getData(tag)">
+        <input type="text" placeholder="Search" autofocus data-ng-model="tag">
+    </form>
 </div>
-<div class="photo fadeIn animated" ng-repeat="photo in photos | filter: {tags: query} | limitTo: photoLimit()" ng-show="dataLoaded">
+<div class="photo fadeIn animated" ng-repeat="photo in photos | limitTo: photoLimit()" ng-show="dataLoaded">
     
     <div class="col-1">
         <a href="#/photos/{{photos.indexOf(photo)}}"><img ng-src="{{photo.media.m}}" alt="flickr photo" align="left"></a>
@@ -19,5 +21,5 @@
 
     </div>
 </div>
-<i ng-hide="dataLoaded" class="fa fa-spinner fa-5x rotate animated"></i>
-<button ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Show more</button>
+<i ng-if="!dataLoaded" class="fa fa-spinner fa-5x rotate animated"></i>
+<button ng-if="dataLoaded" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Show more</button>

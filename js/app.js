@@ -1,5 +1,12 @@
 var app = angular.module('photoApp', ['ngRoute', 'ngSanitize', 'photoControllers', 'ngResource']);
 
+app.factory('Photo', function($resource){
+    return $resource('https://api.flickr.com/services/feeds/photos_public.gne', {
+      format: 'json', jsoncallback: 'JSON_CALLBACK' }, {
+      load: {method: 'jsonp'}}
+      );
+});
+
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.

@@ -43,7 +43,8 @@ body {
     body .photo .col-2 {
       flex: 7;
       width: 100%;
-      margin: 0 20px; }
+      margin: 0 20px;
+      overflow: hidden; }
       @media screen and (max-width: 550px) {
         body .photo .col-2 {
           flex: 3;
